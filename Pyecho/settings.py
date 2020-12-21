@@ -102,9 +102,17 @@ WSGI_APPLICATION = 'Pyecho.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'pyecho',  # 数据库
+        'USER': 'root',  # 用户
+        'PASSWORD': '11111111a',  # 密码
+        'HOST': '127.0.0.1',  # 地址
+
     }
 }
 
@@ -146,4 +154,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "statics")
 ]
-

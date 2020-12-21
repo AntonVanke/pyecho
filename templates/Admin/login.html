@@ -25,10 +25,10 @@
                 <br><br>
                 <input type="submit">
                 <div class="row">
-                    <p>没有账户？</p><a href="./register.html">创建一个！</a>
+                    <p>没有账户？</p><a href="{% url 'user_register' %}">创建一个！</a>
                 </div>
                 <div class="row">
-                    <a href="">忘记密码？</a>
+                    <a href="{% url 'user_forget' %}">忘记密码？</a>
                 </div>
             </form>
 

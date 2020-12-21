@@ -14,21 +14,16 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-10 col-md-7 col-lg-5 col-xl-4 login-box shadow rounded border-0">
-            <form action="{% url 'user_login' %}" method="post" class="form-group">
+            <form action="{% url 'user_forget' %}" method="post" class="form-group">
                 {% csrf_token %}
 {#                <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">#}
-                <h3>登录</h3>
+                <h3>找回密码</h3>
                 <br><br>
                 <input type="text" name="UserName" id="UserName" placeholder="用户名、电子邮箱或手机号码">
                 <br><br>
-                <input type="password" name="PassWord" id="PassWord" placeholder="密码">
-                <br><br>
                 <input type="submit">
                 <div class="row">
-                    <p>没有账户？</p><a href="./register.html">创建一个！</a>
-                </div>
-                <div class="row">
-                    <a href="">忘记密码？</a>
+                    <p>没有账户？</p><a href="">创建一个！</a>
                 </div>
             </form>
 
