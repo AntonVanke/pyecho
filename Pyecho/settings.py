@@ -113,6 +113,7 @@ DATABASES = {
         'USER': 'root',  # 用户
         'PASSWORD': '11111111a',  # 密码
         'HOST': '127.0.0.1',  # 地址
+        'PORT': '3306',  # 端口
 
     }
 }
