@@ -1,0 +1,65 @@
+<!-- 顶部 -->
+{% include "Page/header.html" %}
+<!-- 顶部 -->
+
+<div class="header">
+    <div class="container">
+        <div class="row">
+            <div class="site-info col-12 col-lg-6">
+                <a href="{% url 'page_index' %}" class="title">易部落阁</a>
+                <div class="sub-title">易水人去，明月如霜</div>
+            </div>
+            <div class="search col-6 d-none d-lg-block">
+                <nav class="navbar navbar-light">
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="margin-top: 15px">
+        <ul class="nav col-12">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Active</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<hr>
+<div class="container">
+    <div class="row">
+<!--        左边的文章列表-->
+        <div class="article-list col-12 col-lg-8">
+            <div class="article">
+                <div class="article-title">
+                    <a href="{{ article.url }}">第一篇文章</a>
+                </div>
+                <div class="article-info row ">
+                    <p>作者：</p><a href="{{ article.author_url }}">{{ article.author }}</a>
+                    <p>时间：{{ article.time }}</p>
+                    <p>分类：</p><a href="{{ article.meta_url }}">{{ article.meta }}</a>
+                    <a href="{{ article.comment_url }}">评论：{{ article.comment }}</a>
+                </div>
+            </div>
+        </div>
+<!--        左边的文章列表-->
+<!--        右边的栏目-->
+{% include "Page/sidebar.html" %}
+<!--        右边的栏目-->
+    </div>
+</div>
+
+<!--        底部 -->
+{% include "Page/footer.html" %}
+<!--        底部 -->
