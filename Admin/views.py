@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from Admin import models
 
 
 def index(request):
@@ -8,8 +9,8 @@ def index(request):
     :param request:
     :return:
     """
-    # 判断是否登录了，如果没有登录，返回到登录页面
-    # 如果登录了，则进入后台管理页面
+    # TODO: 判断是否登录了，如果没有登录，返回到登录页面
+    # TODO: 如果登录了，则进入后台管理页面
     return HttpResponse("OK")
 
 
@@ -30,7 +31,12 @@ def login(request):
         # username 用户名， password 用户密码
         username = request.POST.get("UserName")
         password = request.POST.get("PassWord")
-        return HttpResponse("OK")
+        # TODO: 判断用户名是否存在 且 用户密码正确
+        if len(models.Users.objects.filter(username=username)) != 0 and models.Users.objects.filter(
+                username=username).first.password == password:
+            return HttpResponse("登录成功")
+        else:
+            return HttpResponse("账号或密码错误")
 
 
 def register(request):
@@ -47,13 +53,15 @@ def register(request):
         }
         return render(request, "Admin/register.html", locals())
     else:
-        # 判断用户名是否重复
-        # 判断密码强度是否足够
-        # 判断密码与确认密码是否一致
-        username = request.POST.get("UserName")
-        password = request.POST.get("PassWord")
-        email = request.POST.get("Email")
-        telnumber = request.POST.get("TelNumber")
+        # TODO: 判断用户名是否重复
+        # TODO: 判断密码强度是否足够
+        # TODO: 判断密码与确认密码是否一致
+        # TODO: 密码加密存入数据库 或者在 前端加密
+        username = request.POST.get("UserName")  # 用户名
+        password = request.POST.get("PassWord")  # 密码
+        screenname = request.POST.get("ScreenName")  # 昵称
+        email = request.POST.get("Email")  # 电子邮箱
+        models.Users.objects.create(username=username, password=password, screenName=screenname, email=email)
         return HttpResponse("ok")
 
 
@@ -69,7 +77,7 @@ def forget(request):
         }
         return render(request, "Admin/forget.html", locals())
     else:
-        # 判断用户名是否重复
-        # 判断密码强度是否足够
-        # 判断密码与确认密码是否一致
+        # TODO: 判断用户名是否重复
+        # TODO: 判断密码强度是否足够
+        # TODO: 判断密码与确认密码是否一致
         return HttpResponse("暂未开放")
