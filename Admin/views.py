@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from Admin import models
 
@@ -81,3 +81,24 @@ def forget(request):
         # TODO: 判断密码强度是否足够
         # TODO: 判断密码与确认密码是否一致
         return HttpResponse("暂未开放")
+
+
+def test_ajax(request):
+    print(request.POST)
+    if request.method == "POST":
+        data = {
+            "code": 200,
+            "msg": "OK",
+            "data": {
+                "message": "注册成功"
+            }
+        }
+        return JsonResponse(data)
+    else:
+        data = {
+            "code": 404,
+            "msg": "NOT FOUND",
+            "data": {
+            }
+        }
+        return JsonResponse(data)
