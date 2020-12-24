@@ -59,8 +59,9 @@ class Relationships(models.Model):
     cid	int(10)	主键,非负	文章主键
     mid	int(10)	主键,非负	分类主键
     """
+    # FIXME: primary_key=True 不能同时设置为主键?
     cid = models.IntegerField(primary_key=True, verbose_name='文章主键')
-    mid = models.IntegerField(primary_key=True, verbose_name='分类主键')
+    mid = models.IntegerField(verbose_name='分类主键')
 
 
 class Comments(models.Model):
@@ -74,9 +75,10 @@ class Comments(models.Model):
     agent	    varchar(200)	可为空	        评论者客户端
     text	    text	        可为空	        评论文字
     """
+    # FIXME: primary_key=True 不能同时设置为主键?
     coid = models.AutoField(primary_key=True, verbose_name='评论id')
-    cid = models.IntegerField(primary_key=True, verbose_name='文章主键')
-    uid = models.AutoField(primary_key=True, verbose_name='主键')
+    cid = models.IntegerField(verbose_name='文章主键')
+    uid = models.IntegerField(verbose_name='用户id')
     created = models.DateTimeField(auto_now_add=True, verbose_name='评论时间')
     text = models.TextField(blank=True, null=True, verbose_name='评论内容')
 
